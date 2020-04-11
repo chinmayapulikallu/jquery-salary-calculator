@@ -5,8 +5,8 @@
 
 App that records employee details, salaries and total monthly costs
 
-[ ] create input fields for employee_firstname, employee_lastname,id, job title and annnual salary
-[ ] create a submit button
+[x] create input fields for employee_firstname, employee_lastname,id, job title and annnual salary
+[x] create a submit button
     [ ] collect information
     [ ] store information
     [ ] append info to the DOM
