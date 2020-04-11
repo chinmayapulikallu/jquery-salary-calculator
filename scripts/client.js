@@ -22,8 +22,20 @@ function addDetails() {
         $('#idNumber').val('');
         $('#jobTitle').val('');
         $('#annualSalary').val('');
+        displayDetails();
     } //end has employee first name
 } //end addDetails
+
+function displayDetails() {
+        console.log('in display details');
+        let el = $('#tableBody');
+        el.empty();
+        for( let i=0; i<dataBase.length; i++) {
+            $('#tableBody').append(`<tr><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
+            <td>${dataBase[i].empId}</td><td>${dataBase[i].empTitle}</td>
+            <td>${dataBase[i].empSalary}</td></tr>`);
+        } // end for
+} //end displayDetails
 
 function handleReady() {
    $('#addBtn').on('click', addDetails);

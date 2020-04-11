@@ -1,3 +1,8 @@
 h1 {
-    color:red;
+    color: red;
+    text-align: center;
+}
+h3 {
+    margin: 10px;
+    padding: 10px;
 }
