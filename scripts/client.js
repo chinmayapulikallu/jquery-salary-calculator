@@ -34,19 +34,25 @@ function addDetails() {
     } //end has employee first name
 } //end addDetails
 
+function deleteDetails() {
+    console.log('in delateDetails');
+    $('#displayOut').children().remove('#rowBtn');
+}
 
 function displayDetails() {
         console.log('in display details');
         let el = $('#tableBody');
         el.empty();
         for( let i=0; i<dataBase.length; i++) {
-            $('#tableBody').append(`<tr><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
+            $('#tableBody').append(`<tr id="rowBtn"><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
             <td>${dataBase[i].empId}</td><td>${dataBase[i].empTitle}</td>
-            <td>${dataBase[i].empSalary}</td><td><button>delete</button></td></tr>`);
+            <td>${dataBase[i].empSalary}</td><td><button id="deleteBtn">delete</button></td></tr>`);
         } // end for
+    $('#deleteBtn').on('click', deleteDetails);
 } //end displayDetails
 
 function handleReady() {
    $('#addBtn').on('click', addDetails);
+  
 } //end handleReady
 

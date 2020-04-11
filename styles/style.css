@@ -1,3 +1,6 @@
+body{
+    margin-top: 10px;
+}
 h1 {
     color: red;
     text-align: center;
@@ -11,4 +14,9 @@ h5 {
 }
 .red {
     background-color: red;
+}
+#addBtn {
+    float: right;
+    margin: 10px;
+    padding: 5px;
 }
