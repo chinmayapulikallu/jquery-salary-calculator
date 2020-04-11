@@ -28,6 +28,9 @@ function addDetails() {
         sumOfMonthlyCost += Number(empDetails.empSalary);
         totalMonthlyCost = Math.round(sumOfMonthlyCost / 12);
         $('#totalMonth').text(`Total Monthly: $ ${totalMonthlyCost}`);
+        if( totalMonthlyCost > 20000) {
+            $('#totalMonth').addClass('red');
+        }
     } //end has employee first name
 } //end addDetails
 
