@@ -1,6 +1,8 @@
 $(document).ready(handleReady);
 
 let dataBase = [];
+let sumOfMonthlyCost = 0;
+let totalMonthlyCost;
 
 function addDetails() {
     if($('#employeeFirstName').val() === '') {
@@ -23,8 +25,12 @@ function addDetails() {
         $('#jobTitle').val('');
         $('#annualSalary').val('');
         displayDetails();
+        sumOfMonthlyCost += Number(empDetails.empSalary);
+        totalMonthlyCost = Math.round(sumOfMonthlyCost / 12);
+        $('#totalMonth').text(`Total Monthly: $ ${totalMonthlyCost}`);
     } //end has employee first name
 } //end addDetails
+
 
 function displayDetails() {
         console.log('in display details');
@@ -33,7 +39,7 @@ function displayDetails() {
         for( let i=0; i<dataBase.length; i++) {
             $('#tableBody').append(`<tr><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
             <td>${dataBase[i].empId}</td><td>${dataBase[i].empTitle}</td>
-            <td>${dataBase[i].empSalary}</td></tr>`);
+            <td>${dataBase[i].empSalary}</td><td><button>delete</button></td></tr>`);
         } // end for
 } //end displayDetails
 
