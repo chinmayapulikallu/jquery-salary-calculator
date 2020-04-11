@@ -17,10 +17,12 @@ function addDetails() {
         console.log('employee details:', empDetails);
         dataBase.push(empDetails);
         console.log('employee database:', dataBase);
+        $('#employeeFirstName').val('');
+        $('#employeeLastName').val('');
+        $('#idNumber').val('');
+        $('#jobTitle').val('');
+        $('#annualSalary').val('');
     } //end has employee first name
-    
-        
-    
 } //end addDetails
 
 function handleReady() {
