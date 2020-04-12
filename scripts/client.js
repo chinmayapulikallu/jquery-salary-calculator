@@ -6,7 +6,6 @@ const verbose = true;
 
 function addDetails() {
     if(verbose) console.log('in addDetails');
-    
     if($('#employeeFirstName').val() === '') {
         alert('employee first name is missing');
     }  // end no employee firts name
