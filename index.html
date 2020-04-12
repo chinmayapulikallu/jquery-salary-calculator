@@ -23,12 +23,12 @@
             <input type="text" id="idNumber" placeholder="Id">
             <input type="text" id="jobTitle" placeholder="title">
             <input type="text" id="annualSalary" placeholder="annual Salary">
-            <button id="addBtn" class="btn btn-secondary">Submit</button>
+            <button id="addBtn" class="btn btn-primary">Submit</button>
         </div>
         <div id="outputDiv">
             <h3>Employees</h3>
             <table id="displayOut" class="table table-bordered table-striped">
-                <thead>
+                <thead id="tableHead">
                     <tr>
                         <th scope="col">FirstName</th>
                         <th scope="col">Last Name</th>
@@ -40,8 +40,7 @@
                 </thead>
                 <tbody id="tableBody"></tbody>
                 <tfoot id="tableFoot">
-                    <tr>
-                        <td colspan="6"></td>
+                    <tr><td colspan="6"></td>
                     </tr>
                 </tfoot>
             </table>

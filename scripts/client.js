@@ -1,10 +1,11 @@
 $(document).ready(handleReady);
 
 let dataBase = [];
+const verbose = true;
 
 
 function addDetails() {
-    console.log('in addDetails');
+    if(verbose) console.log('in addDetails');
     
     if($('#employeeFirstName').val() === '') {
         alert('employee first name is missing');
@@ -17,7 +18,7 @@ function addDetails() {
             empTitle: $('#jobTitle').val(),
             empSalary: $('#annualSalary').val()
         }; //end detailsToAdd
-        console.log('employee details:', empDetails);
+        if (verbose) console.log('employee details:', empDetails);
         dataBase.push(empDetails);
         console.log('employee database:', dataBase);
         $('#employeeFirstName').val('');
@@ -30,31 +31,32 @@ function addDetails() {
 } //end addDetails
 
 function deleteDetails(id) {
-    console.log('in deleteDetails'+id);
-    // console.log($('#tableBody').find(`#trId${id}`))
+    if (verbose) console.log('in deleteDetails'+id);
     $(`#trId${id}`).remove();
     dataBase.splice(id,1);
     displayDetails();
+    console.log(`DataBase of employee after deletion:`, dataBase);
 } //end deleteDetails
 
 function displayDetails() {
-        console.log('in display details');
+    if (verbose) console.log('in display details');
         let el = $('#tableBody');
         el.empty();
         let sumOfMonthlyCost = 0;
-        let totalMonthlyCost;
+        let totalMonthlyCost = 0;
         for( let i=0; i<dataBase.length; i++) {
-            $('#tableBody').append(`<tr id="trId${i}"  ><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
-            <td>${dataBase[i].empId}</td><td>${dataBase[i].empTitle}</td>
-            <td>${dataBase[i].empSalary}</td><td><button id="deleteBtn${i}" onClick= "deleteDetails(${i})">delete</button></td></tr>`);
-            // $(`#deleteBtn${i}`).on('click', deleteDetails(i));
+            $('#tableBody').append(`<tr id="trId${i}" ><td>${dataBase[i].empFirstName}</td><td>${dataBase[i].empLastName}</td>
+            <td>${dataBase[i].empId}</td><td>${dataBase[i].empTitle}</td><td>${dataBase[i].empSalary}</td>
+            <td><button id="deleteBtn${i}" class="btn btn-danger" onClick= "deleteDetails(${i})">Delete</button></td></tr>`);
             sumOfMonthlyCost += Number(dataBase[i].empSalary);
             totalMonthlyCost = Math.round(sumOfMonthlyCost / 12);
-            $('#totalMonth').text(`Total Monthly: $ ${totalMonthlyCost}`);
-            if (totalMonthlyCost > 20000) {
-                $('#totalMonth').addClass('red');
-            } // end if
         } // end for
+    $('#totalMonth').text(`Total Monthly: $ ${totalMonthlyCost}`);
+    if (totalMonthlyCost > 20000) {
+        $('#totalMonth').addClass('red');
+    } else {
+        $('#totalMonth').removeClass('red');
+    }
 } //end displayDetails
 
 function handleReady() {

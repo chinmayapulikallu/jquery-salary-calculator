@@ -1,8 +1,9 @@
 body{
     margin-top: 10px;
+    padding: 10px;
 }
 h1 {
-    color: red;
+    color: #005180 ;
     text-align: center;
 }
 h3 {
@@ -16,7 +17,11 @@ h5 {
     background-color: red;
 }
 #addBtn {
-    float: right;
+    float: center;
     margin: 10px;
     padding: 5px;
+}
+#tableHead {
+    color: #005180;
+    text-align: left;
 }
